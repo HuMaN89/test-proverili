@@ -1,0 +1,195 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#root {
+  width: 100vw;
+  height: 100vh;
+  background-color: #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 1216px;
+  height: 456px;
+  background-color: #caffa0;
+  border-radius: 24px;
+  padding: 32px;
+}
+.wrapper-info {
+  position: relative;
+}
+.wrapper-title {
+  font-family: "Onest";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 36px;
+  color: #383838;
+  margin-bottom: 16px;
+}
+.wrapper-descriotion {
+  width: 400px;
+  font-family: "Onest";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #383838;
+  opacity: 0.7;
+}
+.wrapper-img {
+  position: absolute;
+  bottom: 0;
+  left: 42px;
+}
+.quiz-item {
+  position: relative;
+  width: 576px;
+  height: 392px;
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 32px;
+}
+.quiz-title {
+  font-family: "Onest";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: #383838;
+  margin-bottom: 24px;
+}
+.quiz-step {
+  position: absolute;
+  right: 32px;
+  top: 32px;
+  font-family: "Onest";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: right;
+  color: #9b9b9b;
+}
+.radio_group {
+  display: flex;
+  flex-wrap: wrap;
+}
+.radio_group-item {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 47%;
+  height: 56px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+.quiz-item label {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  padding: 18px;
+  background: #f5f5f5;
+  cursor: pointer;
+  border-radius: 16px;
+}
+input[type="radio"] {
+  position: absolute;
+  right: 18px;
+  cursor: pointer;
+  z-index: 1;
+}
+input[type="radio"]:checked label {
+  background: #ffe0a6;
+}
+
+/* .radio_group label {
+  display: inline-block;
+  cursor: pointer;
+  padding: 0px 15px;
+  line-height: 34px;
+  border: 1px solid #999;
+  border-right: none;
+  user-select: none;
+} */
+
+/* Checked */
+.radio_group input[type="radio"]:checked + label {
+  background: #fff;
+
+  border: 1px solid #383838;
+  border-radius: 16px;
+}
+
+/* Hover */
+.radio_group label:hover {
+  color: #666;
+}
+
+/* для элемента input c type="radio" */
+.custom-radio {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+/* для элемента label связанного с .custom-radio */
+.custom-radio + label {
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+}
+/* создание в label псевдоэлемента  af::after со следующими стилями */
+.custom-radio + label::after {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  flex-grow: 0;
+  border: 1px solid #adb5bd;
+  border-radius: 50%;
+  margin-left: auto;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+/* стили для радиокнопки, находящейся в состоянии checked */
+.custom-radio:checked + label::after {
+  border-color: #0b75ef00;
+  background-color: #0b75ef00;
+  background-image: url("assets/Radiobutton.png");
+}
+/* стили для радиокнопки, находящейся в состоянии disabled */
+.custom-radio:disabled + label::after {
+  background-color: #e9ecef;
+}
+
+.next-btn {
+  position: absolute;
+  bottom: 32px;
+  right: 40px;
+  width: 108px;
+  height: 44px;
+
+  border: 1px solid #d8d8d8;
+  border-radius: 12px;
+  background: rgb(56, 56, 56) url("assets/arrow.png") no-repeat 80% 50%;
+
+  font-family: "Onest";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #ffffff;
+  padding: 12px 40px 12px 20px;
+  cursor: pointer;
+}
+.next-btn:hover {
+  box-shadow: 0 2px 2px 0.2rem rgba(56, 56, 56, 0.25);
+}
