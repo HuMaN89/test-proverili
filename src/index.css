@@ -47,7 +47,7 @@
   bottom: 0;
   left: 42px;
 }
-.quiz-item {
+.quiz-container {
   position: relative;
   width: 576px;
   height: 392px;
@@ -90,7 +90,7 @@
   margin-right: 8px;
   margin-bottom: 8px;
 }
-.quiz-item label {
+.quiz-item .step1 {
   display: inline-block;
   position: relative;
   width: 100%;
@@ -105,11 +105,10 @@ input[type="radio"] {
   cursor: pointer;
   z-index: 1;
 }
-input[type="radio"]:checked label {
+input[type="radio"]:checked .step1 {
   background: #ffe0a6;
 }
-
-/* .radio_group label {
+/* .radio_group .step1 {
   display: inline-block;
   cursor: pointer;
   padding: 0px 15px;
@@ -118,34 +117,26 @@ input[type="radio"]:checked label {
   border-right: none;
   user-select: none;
 } */
-
-/* Checked */
-.radio_group input[type="radio"]:checked + label {
+.radio_group input[type="radio"]:checked + .step1 {
   background: #fff;
 
   border: 1px solid #383838;
   border-radius: 16px;
 }
-
-/* Hover */
-.radio_group label:hover {
+.radio_group .step1:hover {
   color: #666;
 }
-
-/* для элемента input c type="radio" */
 .custom-radio {
   position: absolute;
   z-index: -1;
   opacity: 0;
 }
-/* для элемента label связанного с .custom-radio */
-.custom-radio + label {
+.custom-radio + .step1 {
   display: inline-flex;
   align-items: center;
   user-select: none;
 }
-/* создание в label псевдоэлемента  af::after со следующими стилями */
-.custom-radio + label::after {
+.custom-radio + .step1::after {
   content: "";
   display: inline-block;
   width: 1em;
@@ -158,29 +149,23 @@ input[type="radio"]:checked label {
   background-repeat: no-repeat;
   background-position: center center;
 }
-
-/* стили для радиокнопки, находящейся в состоянии checked */
-.custom-radio:checked + label::after {
+.custom-radio:checked + .step1::after {
   border-color: #0b75ef00;
   background-color: #0b75ef00;
   background-image: url("assets/Radiobutton.png");
 }
-/* стили для радиокнопки, находящейся в состоянии disabled */
-.custom-radio:disabled + label::after {
+.custom-radio:disabled + .step1::after {
   background-color: #e9ecef;
 }
-
-.next-btn {
+.btn {
   position: absolute;
   bottom: 32px;
   right: 40px;
   width: 108px;
   height: 44px;
-
   border: 1px solid #d8d8d8;
   border-radius: 12px;
   background: rgb(56, 56, 56) url("assets/arrow.png") no-repeat 80% 50%;
-
   font-family: "Onest";
   font-style: normal;
   font-weight: 400;
@@ -190,6 +175,44 @@ input[type="radio"]:checked label {
   padding: 12px 40px 12px 20px;
   cursor: pointer;
 }
+.back-btn {
+  left: 32px;
+
+  color: #383838;
+  background: url(assets/arrow.png) 0 0 repeat;
+  transform: rotate(180deg);
+}
+.back-btn {
+}
 .next-btn:hover {
   box-shadow: 0 2px 2px 0.2rem rgba(56, 56, 56, 0.25);
+}
+.sity-label {
+  position: absolute;
+  top: 86px;
+  left: 48px;
+  z-index: 1;
+  font-family: "Onest";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 12px;
+  color: #9b9b9b;
+}
+.sity-select {
+  display: inline-block;
+  width: 100%;
+  height: 56px;
+  padding: 26px 18px 0;
+  padding-top: 26px;
+  background: #f5f5f5;
+  cursor: pointer;
+  border-radius: 16px;
+
+  font-family: "Onest";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #383838;
 }
