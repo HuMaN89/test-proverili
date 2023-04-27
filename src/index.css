@@ -47,15 +47,27 @@
   bottom: 0;
   left: 42px;
 }
+.quiz-wrapper {
+  width: 576px;
+  border-radius: 24px;
+  height: 392px;
+  overflow: hidden;
+}
 .quiz-container {
+  width: 5184px;
+  position: relative;
+  display: flex;
+  background: #ffffff;
+  padding: 32px;
+  transition: all 1s ease;
+}
+.quiz-item {
   position: relative;
   width: 576px;
   height: 392px;
-  background: #ffffff;
-  border-radius: 24px;
-  padding: 32px;
 }
 .quiz-title {
+  width: 311px;
   font-family: "Onest";
   font-style: normal;
   font-weight: 500;
@@ -66,8 +78,8 @@
 }
 .quiz-step {
   position: absolute;
-  right: 32px;
-  top: 32px;
+  right: 64px;
+  top: 0;
   font-family: "Onest";
   font-style: normal;
   font-weight: 400;
@@ -78,6 +90,7 @@
 }
 .radio_group {
   display: flex;
+  width: 95%;
   flex-wrap: wrap;
 }
 .radio_group-item {
@@ -100,6 +113,7 @@
   border-radius: 16px;
 }
 input[type="radio"] {
+  display: none;
   position: absolute;
   right: 18px;
   cursor: pointer;
@@ -108,15 +122,6 @@ input[type="radio"] {
 input[type="radio"]:checked .step1 {
   background: #ffe0a6;
 }
-/* .radio_group .step1 {
-  display: inline-block;
-  cursor: pointer;
-  padding: 0px 15px;
-  line-height: 34px;
-  border: 1px solid #999;
-  border-right: none;
-  user-select: none;
-} */
 .radio_group input[type="radio"]:checked + .step1 {
   background: #fff;
 
@@ -159,8 +164,8 @@ input[type="radio"]:checked .step1 {
 }
 .btn {
   position: absolute;
-  bottom: 32px;
-  right: 40px;
+  bottom: 64px;
+  right: 72px;
   width: 108px;
   height: 44px;
   border: 1px solid #d8d8d8;
@@ -175,23 +180,28 @@ input[type="radio"]:checked .step1 {
   padding: 12px 40px 12px 20px;
   cursor: pointer;
 }
+
+.btn:disabled {
+  opacity: 0.5;
+}
+
 .back-btn {
-  left: 32px;
+  left: 0px;
+  padding: 12px 20px 12px 40px;
 
   color: #383838;
-  background: url(assets/arrow.png) 0 0 repeat;
-  transform: rotate(180deg);
+  background: url(assets/arrow2.png) 20% 50% no-repeat;
 }
-.back-btn {
-}
-.next-btn:hover {
+.btn:hover {
   box-shadow: 0 2px 2px 0.2rem rgba(56, 56, 56, 0.25);
 }
 .select {
+  width: 90%;
   box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.08);
   border-radius: 16px;
 }
 .select-list {
+  display: none;
   overflow-y: scroll;
   height: 160px;
   box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.08);
@@ -200,10 +210,26 @@ input[type="radio"]:checked .step1 {
   scrollbar-width: var(2rem);
   scrollbar-color: var(rgba(0, 0, 0, 0.15)) var(rgba(0, 0, 0, 0.05));
 }
+.select-list::-webkit-scrollbar {
+  width: 8px; /* ширина scrollbar */
+}
+
+.select-list::-webkit-scrollbar-track {
+}
+
+.select-list::-webkit-scrollbar-thumb {
+  background-color: #d8d8d8; /* цвет плашки */
+  border: 1px solid #d8d8d8; /* padding вокруг плашки */
+
+  border-radius: 20px;
+
+  /* width: 4px;
+  height: 56px; */
+}
 .sity-label {
   position: absolute;
-  top: 86px;
-  left: 48px;
+  top: 54px;
+  left: 16px;
   z-index: 1;
   font-family: "Onest";
   font-style: normal;
@@ -237,10 +263,11 @@ input[type="radio"]:checked .step1 {
   font-size: 16px;
   line-height: 20px;
   color: #383838;
+  padding: 16px;
 
   height: 36px;
   width: 100%;
-  padding: 8px;
+  cursor: pointer;
 }
 
 .select-item::before {
@@ -250,6 +277,7 @@ input[type="radio"]:checked .step1 {
   height: 20px;
   flex-shrink: 0;
   flex-grow: 0;
+  border-radius: 4px;
   border: 1px solid #adb5bd;
   margin-right: 8px;
   background-repeat: no-repeat;
@@ -277,4 +305,10 @@ input[type="radio"]:checked .step1 {
   background-repeat: no-repeat;
   background-position: center center;
   background-image: url("assets/active.png");
+}
+.show {
+  display: block;
+}
+.hide {
+  display: none;
 }
