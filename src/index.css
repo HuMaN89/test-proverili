@@ -54,7 +54,7 @@
   overflow: hidden;
 }
 .quiz-container {
-  width: 5184px;
+  width: 5121px;
   position: relative;
   display: flex;
   background: #ffffff;
@@ -67,7 +67,7 @@
   height: 392px;
 }
 .quiz-title {
-  width: 311px;
+  width: 380px;
   font-family: "Onest";
   font-style: normal;
   font-weight: 500;
@@ -102,6 +102,9 @@
   height: 56px;
   margin-right: 8px;
   margin-bottom: 8px;
+}
+.radio_group-item__long {
+  width: 95%;
 }
 .quiz-item .step1 {
   display: inline-block;
@@ -213,10 +216,6 @@ input[type="radio"]:checked .step1 {
 .select-list::-webkit-scrollbar {
   width: 8px; /* ширина scrollbar */
 }
-
-.select-list::-webkit-scrollbar-track {
-}
-
 .select-list::-webkit-scrollbar-thumb {
   background-color: #d8d8d8; /* цвет плашки */
   border: 1px solid #d8d8d8; /* padding вокруг плашки */
@@ -311,4 +310,43 @@ input[type="radio"]:checked .step1 {
 }
 .hide {
   display: none;
+}
+.user {
+  width: 512px;
+  height: 56px;
+  padding: 18px 16px;
+  background: #f5f5f5;
+  border-radius: 16px;
+  font-family: "Onest";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  margin-bottom: 8px;
+}
+.btn-finish {
+  position: static;
+  width: 512px;
+  height: 56px;
+  padding: 18px 36px;
+  background: #383838;
+  border-radius: 16px;
+  margin-bottom: 8px;
+}
+h4 {
+  width: 512px;
+  height: 20px;
+  font-family: "Onest";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 20px;
+  text-align: center;
+  color: #9b9b9b;
+}
+
+.personal-data {
+  color: #383838;
+  text-decoration: underline;
+  cursor: pointer;
 }
