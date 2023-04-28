@@ -5,8 +5,9 @@
 }
 #root {
   width: 100vw;
+  padding: 15px;
   height: 100vh;
-  background-color: #ccc;
+  background: linear-gradient(21deg, #dd03e4, #5611ec);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,6 +22,8 @@
   padding: 32px;
 }
 .wrapper-info {
+  width: 400px;
+
   position: relative;
 }
 .wrapper-title {
@@ -225,7 +228,7 @@ input[type="radio"]:checked .step1 {
   /* width: 4px;
   height: 56px; */
 }
-.sity-label {
+.select-label {
   position: absolute;
   top: 54px;
   left: 16px;
@@ -237,7 +240,7 @@ input[type="radio"]:checked .step1 {
   line-height: 12px;
   color: #9b9b9b;
 }
-.sity-select {
+.select-title {
   display: inline-block;
   width: 100%;
   height: 56px;

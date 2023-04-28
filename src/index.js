@@ -33,7 +33,7 @@ const cashe = {
   step7: "Любая",
   step8: null,
   step9: {
-    name: null,
+    firstname: null,
     phone: null,
     email: null,
   },
@@ -41,15 +41,15 @@ const cashe = {
 
 const quizContainer = document.querySelector(".quiz-container");
 
-const sitiesList = document.querySelector("#sities-list");
-const selectList = document.querySelector(".select-list");
+const sitiesSelect = document.querySelector("#sitiesSelect");
+const sitiesList = document.querySelector("#sitiesList");
 let activSity = "Москва";
-const sityName = document.querySelector(".sity-name");
+const sityName = document.querySelector("#sityName");
 
-const profSelect = document.querySelector("#professions-select");
-const professionsList = document.querySelector("#professions-list");
+const profSelect = document.querySelector("#professionsSelect");
+const professionsList = document.querySelector("#professionsList");
 let avtivProf = "Любая";
-const profName = document.querySelector("#prof-name");
+const profName = document.querySelector("#profName");
 
 const nextButtons = document.querySelectorAll(".btn");
 let offset = 0;
@@ -64,6 +64,19 @@ const step8 = document.querySelector("#step8");
 const firstname = document.querySelector("#firstname");
 const phone = document.querySelector("#phone");
 const email = document.querySelector("#email");
+
+//butons events
+nextButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    if (button.value === "Далее") {
+      offset += -562;
+      quizContainer.style.transform = `translateX(${offset}px)`;
+    } else {
+      offset += 562;
+      quizContainer.style.transform = `translateX(${offset}px)`;
+    }
+  });
+});
 
 step1.addEventListener("click", (e) => {
   e.stopPropagation();
@@ -106,6 +119,12 @@ step6.addEventListener("click", (e) => {
     nextButtons[10].disabled = false;
   }
 });
+step7.addEventListener("click", (e) => {
+  e.stopPropagation();
+  if (e.target.classList.contains("select-item")) {
+    cashe.step7 = e.target.innerHTML;
+  }
+});
 step8.addEventListener("click", (e) => {
   e.stopPropagation();
   if (e.target.tagName === "LABEL") {
@@ -117,43 +136,77 @@ step8.addEventListener("click", (e) => {
 // step 2
 const initSities = () => {
   sityName.innerHTML = activSity;
-  selectList.innerHTML = `<div class="select-item active">${activSity}</div>`;
+  sitiesList.innerHTML = `<div class="select-item active">${activSity}</div>`;
   sities.forEach((sity) => {
     sity !== activSity
-      ? (selectList.innerHTML += `<div class="select-item">${sity}</div>`)
+      ? (sitiesList.innerHTML += `<div class="select-item">${sity}</div>`)
       : null;
   });
+
   initSitiesList();
 };
 const initSitiesList = () => {
-  console.log(sitiesList);
-  selectList.childNodes.forEach((child) => {
+  sitiesList.childNodes.forEach((child) => {
     child.addEventListener("click", () => {
       activSity = child.innerHTML;
-      toggleElement(selectList);
+      cashe.step2 = activSity;
+      toggleElement(sitiesList);
       initSities();
     });
   });
 };
 initSitiesList();
-
+initSities();
 const toggleElement = (element) => {
   element.classList.toggle("show");
 };
-sitiesList.addEventListener("click", () => {
-  toggleElement(selectList);
+sitiesSelect.addEventListener("click", () => {
+  toggleElement(sitiesList);
 });
 
-nextButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    if (button.value === "Далее") {
-      offset += -562;
-      quizContainer.style.transform = `translateX(${offset}px)`;
-    } else {
-      offset += 562;
-      quizContainer.style.transform = `translateX(${offset}px)`;
+//step 7
+
+const initProfessions = () => {
+  profName.innerHTML = avtivProf;
+  professionsList.innerHTML = `<div class="select-item active">${avtivProf}</div>`;
+  professions.forEach((prof) => {
+    prof !== avtivProf
+      ? (professionsList.innerHTML += `<div class="select-item">${prof}</div>`)
+      : null;
+  });
+
+  initProfessionsList();
+};
+const initProfessionsList = () => {
+  professionsList.childNodes.forEach((child) => {
+    child.addEventListener("click", () => {
+      avtivProf = child.innerHTML;
+      cashe.step7 = avtivProf;
+
+      toggleElement(professionsList);
+      initProfessions();
+    });
+  });
+};
+initProfessionsList();
+initProfessions();
+
+profSelect.addEventListener("click", () => {
+  toggleElement(professionsList);
+});
+
+//step 9
+
+[firstname, phone, email].forEach((el) => {
+  el.addEventListener("input", (e) => {
+    cashe.step9[el.id] = e.target.value;
+
+    if (cashe.step9.email && cashe.step9.firstname && cashe.step9.phone) {
+      nextButtons[nextButtons.length - 1].disabled = false;
     }
   });
 });
 
-//step 7
+nextButtons[nextButtons.length - 1].addEventListener("click", () => {
+  alert(cashe);
+});
