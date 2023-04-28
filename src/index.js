@@ -208,5 +208,27 @@ profSelect.addEventListener("click", () => {
 });
 
 nextButtons[nextButtons.length - 1].addEventListener("click", () => {
-  alert(cashe);
+  const modalWrapper = document.createElement("div");
+  modalWrapper.classList.add("modal-wrapper");
+  document.body.append(modalWrapper);
+
+  const modal = document.createElement("div");
+  modal.classList.add("modal");
+  modal.innerHTML = `
+1: ${cashe.step1} </br>
+2: ${cashe.step2} </br>
+3: ${cashe.step3} </br>
+4: ${cashe.step4} </br>
+5: ${cashe.step5} </br>
+6: ${cashe.step6} </br>
+7: ${cashe.step7} </br>
+8: ${cashe.step8} </br>
+9 1 Имя: ${cashe.step9.firstname} </br>
+9 2 Телефон: ${cashe.step9.phone} </br>
+9 3 Почта: ${cashe.step9.email} </br>`;
+  modalWrapper.append(modal);
+
+  modalWrapper.addEventListener("click", () => {
+    modalWrapper.classList.add("hide");
+  });
 });

@@ -3,6 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+body {
+  position: relative;
+}
 #root {
   width: 100vw;
   padding: 15px;
@@ -308,12 +311,6 @@ input[type="radio"]:checked .step1 {
   background-position: center center;
   background-image: url("assets/active.png");
 }
-.show {
-  display: block;
-}
-.hide {
-  display: none;
-}
 .user {
   width: 512px;
   height: 56px;
@@ -352,4 +349,36 @@ h4 {
   color: #383838;
   text-decoration: underline;
   cursor: pointer;
+}
+.modal-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 5;
+}
+.modal {
+  width: 500px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  background: radial-gradient(
+    circle,
+    rgba(58, 99, 255, 1),
+    rgba(42, 179, 252, 1) 90%
+  );
+}
+
+.show {
+  display: block;
+}
+.hide {
+  display: none;
 }
